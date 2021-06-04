@@ -180,8 +180,9 @@ void FilesystemHandler::process(Socket *socket, const QString &path)
         return;
     }
 
-    // URL-decode the path
-    QString decodedPath = QUrl::fromPercentEncoding(path.toUtf8());
+    // URL-decode the path, strip query and fragment parts.
+	QUrl pathUrl = QUrl::fromEncoded(path.toUtf8());
+	QString decodedPath = pathUrl.toString(QUrl::RemoveQuery | QUrl::RemoveFragment);
 
     // Attempt to retrieve the absolute path
     QString absolutePath;
