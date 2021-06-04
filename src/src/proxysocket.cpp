@@ -147,14 +147,14 @@ void ProxySocket::onUpstreamError(QAbstractSocket::SocketError socketError)
 QString ProxySocket::methodToString(Socket::Method method) const
 {
     switch (method) {
-    case Socket::OPTIONS: return "OPTIONS";
-    case Socket::GET: return "GET";
-    case Socket::HEAD: return "HEAD";
-    case Socket::POST: return "POST";
-    case Socket::PUT: return "PUT";
-    case Socket::DELETE: return "DELETE";
-    case Socket::TRACE: return "TRACE";
-    case Socket::CONNECT: return "CONNECT";
+    case Socket::Options: return "OPTIONS";
+    case Socket::Get: return "GET";
+    case Socket::Head: return "HEAD";
+    case Socket::Post: return "POST";
+    case Socket::Put: return "PUT";
+    case Socket::Delete: return "DELETE";
+    case Socket::Trace: return "TRACE";
+    case Socket::Connect: return "CONNECT";
     default: return QString();
     }
 }

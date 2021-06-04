@@ -23,7 +23,7 @@
 #ifndef QHTTPENGINE_PROXYHANDLER_H
 #define QHTTPENGINE_PROXYHANDLER_H
 
-#include <QHostAddress>
+#include <QtNetwork/QHostAddress>
 
 #include <qhttpengine/handler.h>
 

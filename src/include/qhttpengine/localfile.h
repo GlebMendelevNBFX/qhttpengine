@@ -23,7 +23,7 @@
 #ifndef QHTTPENGINE_LOCALFILE_H
 #define QHTTPENGINE_LOCALFILE_H
 
-#include <QFile>
+#include <QtCore/QFile>
 
 #include "qhttpengine_export.h"
 

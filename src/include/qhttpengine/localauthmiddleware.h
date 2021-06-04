@@ -23,7 +23,7 @@
 #ifndef QHTTPENGINE_LOCALAUTHMIDDLEWARE_H
 #define QHTTPENGINE_LOCALAUTHMIDDLEWARE_H
 
-#include <QVariantMap>
+#include <QtCore/QVariantMap>
 
 #include <qhttpengine/middleware.h>
 

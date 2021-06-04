@@ -23,7 +23,7 @@
 #ifndef QHTTPENGINE_MIDDLEWARE_H
 #define QHTTPENGINE_MIDDLEWARE_H
 
-#include <QObject>
+#include <QtCore/QObject>
 
 #include "qhttpengine_export.h"
 

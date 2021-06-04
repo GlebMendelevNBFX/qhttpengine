@@ -23,9 +23,9 @@
 #ifndef QHTTPENGINE_SERVER_H
 #define QHTTPENGINE_SERVER_H
 
-#include <QHostAddress>
-#include <QObject>
-#include <QTcpServer>
+#include <QtNetwork/QHostAddress>
+#include <QtCore/QObject>
+#include <QtNetwork/QTcpServer>
 
 #include "qhttpengine_export.h"
 

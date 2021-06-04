@@ -23,7 +23,7 @@
 #ifndef QHTTPENGINE_QIODEVICECOPIER_H
 #define QHTTPENGINE_QIODEVICECOPIER_H
 
-#include <QObject>
+#include <QtCore/QObject>
 
 #include "qhttpengine_export.h"
 

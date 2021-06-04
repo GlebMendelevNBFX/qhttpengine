@@ -23,9 +23,9 @@
 #ifndef QHTTPENGINE_SOCKET_H
 #define QHTTPENGINE_SOCKET_H
 
-#include <QHostAddress>
-#include <QIODevice>
-#include <QMultiMap>
+#include <QtNetwork/QHostAddress>
+#include <QtCore/QIODevice>
+#include <QtCore/QMultiMap>
 
 #include <qhttpengine/ibytearray.h>
 
@@ -121,21 +121,21 @@ public:
      */
     enum Method {
         /// Request for communications options
-        OPTIONS = 1,
+        Options = 1,
         /// Request resource
-        GET = 1 << 1,
+        Get = 1 << 1,
         /// Request resource without body
-        HEAD = 1 << 2,
+        Head = 1 << 2,
         /// Store subordinate resource
-        POST = 1 << 3,
+        Post = 1 << 3,
         /// Store resource
-        PUT = 1 << 4,
+        Put = 1 << 4,
         /// Delete resource
-        DELETE = 1 << 5,
+        Delete = 1 << 5,
         /// Diagnostic trace
-        TRACE = 1 << 6,
+        Trace = 1 << 6,
         /// Proxy connection
-        CONNECT = 1 << 7
+        Connect = 1 << 7
     };
 
     /**

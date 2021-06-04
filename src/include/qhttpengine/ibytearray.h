@@ -25,7 +25,7 @@
 
 #include <cctype>
 
-#include <QByteArray>
+#include <QtCore/QByteArray>
 
 #include "qhttpengine_export.h"
 

@@ -23,7 +23,7 @@
 #ifndef QHTTPENGINE_PARSER_H
 #define QHTTPENGINE_PARSER_H
 
-#include <QList>
+#include <QtCore/QList>
 
 #include <qhttpengine/socket.h>
 

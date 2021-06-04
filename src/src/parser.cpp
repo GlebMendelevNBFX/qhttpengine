@@ -110,21 +110,21 @@ bool Parser::parseRequestHeaders(const QByteArray &data, Socket::Method &method,
     }
 
     if (parts[0] == "OPTIONS") {
-        method = Socket::OPTIONS;
+        method = Socket::Options;
     } else if (parts[0] == "GET") {
-        method = Socket::GET;
+        method = Socket::Get;
     } else if (parts[0] == "HEAD") {
-        method = Socket::HEAD;
+        method = Socket::Head;
     } else if (parts[0] == "POST") {
-        method = Socket::POST;
+        method = Socket::Post;
     } else if (parts[0] == "PUT") {
-        method = Socket::PUT;
+        method = Socket::Put;
     } else if (parts[0] == "DELETE") {
-        method = Socket::DELETE;
+        method = Socket::Delete;
     } else if (parts[0] == "TRACE") {
-        method = Socket::TRACE;
+        method = Socket::Trace;
     } else if (parts[0] == "CONNECT") {
-        method = Socket::CONNECT;
+        method = Socket::Connect;
     } else {
         return false;
     }

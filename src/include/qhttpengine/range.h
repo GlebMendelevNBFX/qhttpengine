@@ -23,7 +23,7 @@
 #ifndef QHTTPENGINE_RANGE_H
 #define QHTTPENGINE_RANGE_H
 
-#include <QString>
+#include <QtCore/QString>
 
 #include "qhttpengine_export.h"
 
