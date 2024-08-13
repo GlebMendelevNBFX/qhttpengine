@@ -100,7 +100,7 @@ public:
      * The destination path may use "%1", "%2", etc. to refer to captured
      * parts of the pattern. The client will receive an HTTP 302 redirect.
      */
-    void addRedirect(const QRegExp &pattern, const QString &path);
+    void addRedirect(const QRegularExpression &pattern, const QString &path);
 
     /**
      * @brief Add a handler for a specific pattern
@@ -109,7 +109,7 @@ public:
      * used when the route() method is invoked to determine whether the
      * request matches any patterns. The order of the list is preserved.
      */
-    void addSubHandler(const QRegExp &pattern, Handler *handler);
+    void addSubHandler(const QRegularExpression &pattern, Handler *handler);
 
     /**
      * @brief Route an incoming request

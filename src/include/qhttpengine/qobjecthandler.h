@@ -116,6 +116,10 @@ public:
      */
     void registerMethod(const QString &name, QObject *receiver, Functor functor, bool readAll = true);
 #else
+
+    template <typename L, int N> struct List_Select { typedef typename List_Select<typename L::Cdr, N - 1>::Value Value; };
+    template <typename L> struct List_Select<L, 0> { typedef typename L::Car Value; };
+
     template <typename Func1>
     inline void registerMethod(const QString &name,
                                typename QtPrivate::FunctionPointer<Func1>::Object *receiver,
@@ -129,21 +133,21 @@ public:
                           "The slot must have exactly one argument.");
 
         // Ensure the argument is of the correct type
-        Q_STATIC_ASSERT_X((QtPrivate::AreArgumentsCompatible<Socket*, typename QtPrivate::List_Select<typename SlotType::Arguments, 0>::Value>::value),
+        Q_STATIC_ASSERT_X((QtPrivate::AreArgumentsCompatible<Socket*, typename List_Select<typename SlotType::Arguments, 0>::Value>::value),
                           "The slot parameters do not match");
 
         // Invoke the implementation
-        registerMethodImpl(name, receiver, new QtPrivate::QSlotObject<Func1, typename SlotType::Arguments, void>(slot), readAll);
+        registerMethodImpl(name, receiver, new QtPrivate::QCallableObject<Func1, typename SlotType::Arguments, void>(slot), readAll);
     }
 
     template <typename Func1>
-    inline typename QtPrivate::QEnableIf<!QtPrivate::AreArgumentsCompatible<Func1, QObject*>::value, void>::Type
+    inline typename std::enable_if<!QtPrivate::AreArgumentsCompatible<Func1, QObject*>::value, void>::Type
             registerMethod(const QString &name, Func1 slot, bool readAll = true) {
         registerMethod(name, Q_NULLPTR, slot, readAll);
     }
 
     template <typename Func1>
-    inline typename QtPrivate::QEnableIf<!QtPrivate::FunctionPointer<Func1>::IsPointerToMemberFunction &&
+    inline typename std::enable_if<!QtPrivate::FunctionPointer<Func1>::IsPointerToMemberFunction &&
 #if QT_VERSION >= QT_VERSION_CHECK(5, 7, 0)
                                              !std::is_same<const char*, Func1>::value,
 #else
@@ -167,6 +171,7 @@ protected:
 
 private:
 
+#if 0 // Unused
     template <typename Func1, typename Func1Operator>
     inline void registerMethod_functor(const QString &name, QObject *context, Func1 slot, Func1Operator, bool readAll) {
 
@@ -184,6 +189,7 @@ private:
                            new QtPrivate::QFunctorSlotObject<Func1, 1, typename SlotType::Arguments, void>(slot),
                            readAll);
     }
+#endif
 
     void registerMethodImpl(const QString &name, QObject *receiver, QtPrivate::QSlotObjectBase *slotObj, bool readAll);
 
